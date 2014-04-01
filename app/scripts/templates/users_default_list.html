@@ -1,0 +1,6 @@
+  <!-- List group -->
+  <div class="list-group">
+    <% _.each(users, function(user) { %> 
+      <a class="list-group-item" href="#users/<%= encodeURIComponent(user.username) %>"><%= user.username %></a>
+    <% }); %>
+  </div>

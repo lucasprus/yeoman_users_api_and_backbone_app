@@ -1,0 +1,22 @@
+<dl class="dl-horizontal">
+  <dt>Username</dt>
+    <dd><%= user.username %></dd>
+  <dt>Name</dt>
+    <dd><%= user.name %></dd>
+  <dt>Email</dt>
+    <dd><%= user.email %></dd>
+  <dt>Password</dt>
+    <dd><%= user.password %></dd>
+  <dt>Birthday</dt>
+    <dd><%= $.datepicker.formatDate('yy-mm-dd', new Date(user.birthday)) %></dd>
+  <dt>Gender</dt>
+    <dd><%= user.gender %></dd>
+  <dt>Bio</dt>
+    <dd><%= user.bio %></dd>
+</dl>
+
+<% if(!options.noEdit){%>
+<button type="button" class="edit btn btn-default">Edit</button>
+<button type="button" class="delete btn btn-danger">Delete</button>
+<!-- <a href="#users" class="btn btn-default" role="button">Go back</a> -->
+<%}%>

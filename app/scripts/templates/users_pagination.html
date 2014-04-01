@@ -1,0 +1,11 @@
+<ul class="pagination">
+<% if(page > 1) {%>
+  <li><a href="#users/page<%= page - 1 %>">&laquo;</a></li>
+<%}
+for (var i = 0, j = 1; i < count; i += maxUsersPerPage, j += 1) {%>
+  <li <% if(page === j) {%>class="active"<%}%>><a href="#users/page<%= j %>"><%= j %></a></li>
+<%}
+if (!this.collection.lastPage) {%>
+  <li><a  href="#users/page<%= page + 1 %>">&raquo;</a></li>
+<%}%>
+</ul>

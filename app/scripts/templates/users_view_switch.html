@@ -1,0 +1,9 @@
+<form id="view_switch">
+  View:
+  <label>
+    <input type="radio" name="view" value="default" <% if(view!=="detailed" ){%>checked="checked"<%}%>/> default
+  </label>
+  <label>
+    <input type="radio" name="view" value="detailed" <% if(view==="detailed" ){%>checked="checked"<%}%>/> detailed
+  </label>
+</form>

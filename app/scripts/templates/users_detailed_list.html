@@ -1,0 +1,17 @@
+  <!-- List group -->
+  <div class="list-group">
+    <% _.each(users, function(user) { %> 
+      <a class="list-group-item" href="#users/<%= encodeURIComponent(user.username) %>">
+        <dl class="dl-horizontal">
+          <dt>Username</dt>
+            <dd><%= user.username %></dd>
+          <dt>Name</dt>
+            <dd><%= user.name %></dd>
+          <dt>Email</dt>
+            <dd><%= user.email %></dd>
+        </dl>
+
+        <!-- <button type="button" class="delete btn btn-danger">Delete</button> -->
+      </a>
+    <% }); %>
+  </div>

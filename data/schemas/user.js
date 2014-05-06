@@ -73,6 +73,7 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        lowercase: true,        
         match: emailRegexp
     },
     gender: {

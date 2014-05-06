@@ -37,10 +37,16 @@ module.exports = function (app) {
     });
     app.get('/api/users/:name', loadUser, function (req, res) {
         // console.log( req.user.hasOwnProperty('email'));
-        res.json(req.user);
+        return res.json({
+            success: 'User exists',
+            user: req.user
+        });        
     });
     app.post('/api/users', function (req, res) {
-        User.create(req.body, function (err) {
+        if (req.body && req.body.clientUsername) {
+          req.body.username = req.body.clientUsername; // client username to username
+        }
+        User.create(req.body, function (err, newUser) {
             if (err) {
                 if (err.code === 11000 || err.code === 11001) {
                     return res.json({
@@ -59,7 +65,8 @@ module.exports = function (app) {
                 }, 500);
             }
             return res.json({
-                success: 'User created'
+                success: 'User created',
+                user: newUser
             });
         });
     });
@@ -70,7 +77,7 @@ module.exports = function (app) {
         req.user.set('birthday', req.body.birthday);
         req.user.set('gender', req.body.gender);
         req.user.set('bio', req.body.bio);
-        req.user.save(function (err) {
+        req.user.save(function (err, updatedUser) {
             if (err) {
                 if (err.code === 11000 || err.code === 11001) {
                     return res.json({
@@ -89,7 +96,8 @@ module.exports = function (app) {
                 }, 500);
             }
             return res.json({
-                success: 'User updated'
+                success: 'User updated',
+                user: updatedUser
             });
         });
     });

@@ -34,8 +34,7 @@ if ('development' === app.get('env')) {
   }));
   app.use(express.static(__dirname + '/.tmp'));
   app.use(express.static(__dirname + '/app'));
-}
-else if ('production' === app.get('env')) {
+} else if ('production' === app.get('env')) {
   app.use(express.static(__dirname + '/dist'));
 }
 
@@ -59,8 +58,7 @@ if ('development' === app.get('env')) {
     dumpExceptions: true,
     showStack: true
   }));
-}
-else if ('production' === app.get('env')) {
+} else if ('production' === app.get('env')) {
   app.use(express.errorHandler());
 }
 // Routes

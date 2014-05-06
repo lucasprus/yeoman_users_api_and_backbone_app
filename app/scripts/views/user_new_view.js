@@ -21,7 +21,7 @@ define(['backbone', 'jquery-ui', 'text!templates/user_new.html'], function (Back
       'click button.save_new': function () {
         var form = this.el.getElementsByTagName('form')[0];
         this.trigger('user_new_view:click:button.save_new', {
-          username: form.username.value,
+          clientUsername: form.clientUsername.value,
           name: form.name.value,
           email: form.email.value,
           password: form.password.value,

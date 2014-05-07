@@ -43,9 +43,7 @@ module.exports = function (app) {
         });        
     });
     app.post('/api/users', function (req, res) {
-        if (req.body && req.body.clientUsername) {
-          req.body.username = req.body.clientUsername; // client username to username
-        }
+        req.body.username = req.body.clientUsername; // client username to username
         User.create(req.body, function (err, newUser) {
             if (err) {
                 if (err.code === 11000 || err.code === 11001) {
